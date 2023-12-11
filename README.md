@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# achiever
 
-## Getting Started
+## Description
 
-First, run the development server:
+Complete game achievements and earn tokens.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- You have installed the latest version of [Node.j, npm and/or pnpm](https://nodejs.org/en/download/).
+- You have installed [Truffle](https://www.trufflesuite.com/truffle) globally. If not, install it using `npm install -g truffle`.
+- You have installed [Ganache](https://www.trufflesuite.com/ganache) for a personal blockchain for Ethereum development.
+
+## Running the Project Locally
+
+Follow these steps to get up and running:
+
+### Clone the repository
+
+First, clone this repository to your local machine using `git`:
+
+```sh
+git clone <repository_url>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Install the dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Navigate to the project directory and install all of the dependencies:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```sh
+cd <project_directory>
+npm install
+```
 
-## Learn More
+### Start Ganache
 
-To learn more about Next.js, take a look at the following resources:
+Start your Ganache. You can use the Ganache GUI or the Ganache CLI:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```sh
+ganache
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Compile and migrate the smart contracts
 
-## Deploy on Vercel
+Next, use truffle to compile and migrate your contracts to the Ganache network
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```sh
+truffle compile
+truffle migrate --network development
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Start the development server
+
+Finally, start the development server:
+
+```sh
+npm install -g pnpm
+pnpm i
+pnpm dev
+```
