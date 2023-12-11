@@ -8,7 +8,7 @@ Complete game achievements and earn tokens.
 
 Before you begin, ensure you have met the following requirements:
 
-- You have installed the latest version of [Node.j, npm and/or pnpm](https://nodejs.org/en/download/).
+- You have installed the latest version of [Node.js, npm and/or pnpm](https://nodejs.org/en/download/).
 - You have installed [Truffle](https://www.trufflesuite.com/truffle) globally. If not, install it using `npm install -g truffle`.
 - You have installed [Ganache](https://www.trufflesuite.com/ganache) for a personal blockchain for Ethereum development.
 
