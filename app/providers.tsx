@@ -5,6 +5,7 @@ import {
   RainbowKitProvider,
   getDefaultWallets,
   connectorsForWallets,
+  darkTheme,
 } from "@rainbow-me/rainbowkit";
 import {
   argentWallet,
@@ -22,6 +23,8 @@ import {
   goerli,
 } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
+import { localhost } from "wagmi/chains";
+
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [
@@ -31,12 +34,13 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
     arbitrum,
     base,
     zora,
+    localhost,
     ...(process.env.NEXT_PUBLIC_ENABLE_TESTNETS === "true" ? [goerli] : []),
   ],
   [publicProvider()]
 );
 
-const projectId = "YOUR_PROJECT_ID";
+const projectId = "b53a90f3596f7b8f6b767f87d6cf0b55";
 
 const { wallets } = getDefaultWallets({
   appName: "Achiever demo",
@@ -44,7 +48,7 @@ const { wallets } = getDefaultWallets({
   chains,
 });
 
-const demoAppInfo = {
+const achieverInfo = {
   appName: "Achiever Demo",
 };
 
@@ -72,7 +76,15 @@ export function Providers({ children }: { children: React.ReactNode }) {
   React.useEffect(() => setMounted(true), []);
   return (
     <WagmiConfig config={wagmiConfig}>
-      <RainbowKitProvider chains={chains} appInfo={demoAppInfo}>
+      <RainbowKitProvider
+        chains={chains}
+        appInfo={achieverInfo}
+        theme={darkTheme({
+          accentColor: "#FF0000",
+          accentColorForeground: "#FFFFFF",
+          borderRadius: "medium",
+        })}
+      >
         {mounted && children}
       </RainbowKitProvider>
     </WagmiConfig>
